@@ -20,7 +20,7 @@ import h5py
 import json
 
 import numpy as np
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
 
 
 def log_sum_exp(x_k):
@@ -184,7 +184,7 @@ def write_data(data_fname, data_dict, use_json=False, compression=None):
     os.makedirs(dir_name)
 
   if use_json:
-    the_file = open(data_fname,'wb')
+    the_file = open(data_fname,'w')
     json.dump(data_dict, the_file)
     the_file.close()
   else:

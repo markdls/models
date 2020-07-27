@@ -24,12 +24,12 @@ from synthetic_data_utils import generate_data, generate_rnn
 from synthetic_data_utils import get_train_n_valid_inds
 from synthetic_data_utils import nparray_and_transpose
 from synthetic_data_utils import spikify_data, split_list_by_inds
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
 from utils import write_datasets
 
 DATA_DIR = "rnn_synth_data_v1.0"
 
-flags = tf.app.flags
+flags = tf.compat.v1.flags
 flags.DEFINE_string("save_dir", "/tmp/" + DATA_DIR + "/",
                     "Directory for saving data.")
 flags.DEFINE_string("datafile_name", "conditioned_rnn_data",

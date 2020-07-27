@@ -19,7 +19,7 @@ import h5py
 import numpy as np
 import os
 from six.moves import xrange
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
 
 from utils import write_datasets
 from synthetic_data_utils import normalize_rates
@@ -28,7 +28,7 @@ from synthetic_data_utils import spikify_data, split_list_by_inds
 
 DATA_DIR = "rnn_synth_data_v1.0"
 
-flags = tf.app.flags
+flags = tf.compat.v1.flags
 flags.DEFINE_string("save_dir", "/tmp/" + DATA_DIR + "/",
                     "Directory for saving data.")
 flags.DEFINE_string("datafile_name", "itb_rnn",

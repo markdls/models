@@ -20,7 +20,7 @@ from __future__ import print_function
 from lfads import LFADS
 import numpy as np
 import os
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
 import re
 import utils
 import sys
@@ -95,7 +95,7 @@ IC_PRIOR_VAR_SCALE = 0.1
 IC_PRIOR_VAR_MAX = 0.1
 IC_POST_VAR_MIN = 0.0001      # protection from KL blowing up
 
-flags = tf.app.flags
+flags = tf.compat.v1.flags
 flags.DEFINE_string("kind", "train",
                     "Type of model to build {train, \
                     posterior_sample_and_average, \
@@ -502,7 +502,7 @@ def build_hyperparameter_dict(flags):
   want to be able to view file as text.
 
   Args:
-    flags: From tf.app.flags
+    flags: From tf.compat.v1.flags
 
   Returns:
     dictionary of hyper parameters (ignoring other flag types).
@@ -577,8 +577,7 @@ def build_hyperparameter_dict(flags):
   d['kl_increase_steps'] = flags.kl_increase_steps
   d['l2_start_step'] = flags.l2_start_step
   d['l2_increase_steps'] = flags.l2_increase_steps
-  d['_clip_value'] = 80 # bounds the tf.exp to avoid INF 
-  
+
   return d
 
 

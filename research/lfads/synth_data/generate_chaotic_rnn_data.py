@@ -18,7 +18,7 @@ from __future__ import print_function
 import h5py
 import numpy as np
 import os
-import tensorflow as tf         # used for flags here
+import tensorflow.compat.v1 as tf         # used for flags here
 
 from utils import write_datasets
 from synthetic_data_utils import add_alignment_projections, generate_data
@@ -32,7 +32,7 @@ import scipy.signal
 matplotlib.rcParams['image.interpolation'] = 'nearest'
 DATA_DIR = "rnn_synth_data_v1.0"
 
-flags = tf.app.flags
+flags = tf.compat.v1.flags
 flags.DEFINE_string("save_dir", "/tmp/" + DATA_DIR + "/",
                     "Directory for saving data.")
 flags.DEFINE_string("datafile_name", "thits_data",
